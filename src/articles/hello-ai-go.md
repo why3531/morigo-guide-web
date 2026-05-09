@@ -5,7 +5,7 @@ description: 这是一篇用于演示文章页、元数据和 Markdown 渲染的
 category: 教程
 tags: [公告, 示例]
 cover:
-draft: false
+draft: true
 ---
 
 # AI GO 文章示例
