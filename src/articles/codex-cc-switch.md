@@ -26,12 +26,25 @@ draft: false
 
 ### 中转站提供的信息
 
-- key
+- Api key
 - Api 地址
 
 ![](http://qiniu.zkheo.top/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20260509205511_246_2.png)
 
 ### 配置CC Switch
+> 选择 codex 点击添加账号
+![](http://qiniu.zkheo.top/20260509205927659.png) 
 
-![](http://qiniu.zkheo.top/20260509205927659.png)
+> 选择自定义配置
+![](http://qiniu.zkheo.top/20260509210530845.png)
 
+> 填写账号信息
+![](http://qiniu.zkheo.top/20260509210904729.png)
+
+> 点击添加按钮
+
+> 对刚添加的账号进行启用
+![](http://qiniu.zkheo.top/20260509211537759.png)
+
+### 打开 Codex 验证
+![](http://qiniu.zkheo.top/20260509211835763.png)
