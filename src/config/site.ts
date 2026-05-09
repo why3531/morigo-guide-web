@@ -8,9 +8,9 @@ const siteConfig: SiteConfig = {
   logoIcon: 'mdi:arrow-top-right-bold-box',
 
   // ==================== 链接 ====================
-  domain: 'go.morijiu.cn',
-  domainUrl: 'https://go.morijiu.cn',
-  githubUrl: 'https://github.com/MoRijiu/morigo-guide-web',
+  domain: 'aigo.zkheo.top',
+  domainUrl: 'https://aigo.zkheo.top/',
+  githubUrl: '',
 
   // ==================== 顶部菜单 ====================
   // 内部链接示例：/articles 或 /articles/hello-ai-go
@@ -18,7 +18,7 @@ const siteConfig: SiteConfig = {
   menus: [
     { label: '教程', url: '/articles/categories/教程' },
     { label: 'BLOG', url: '/articles' },
-    { label: 'GitHub', url: 'https://github.com/MoRijiu/morigo-guide-web', icon: 'mdi:github', external: true },
+    // { label: 'GitHub', url: 'https://github.com/MoRijiu/morigo-guide-web', icon: 'mdi:github', external: true },
   ],
 
   // ==================== 搜索 ====================
