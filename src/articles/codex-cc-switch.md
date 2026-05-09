@@ -5,7 +5,7 @@ description:
 category: 随笔
 tags: []
 cover:
-draft: true
+draft: false
 ---
 
 # codex-cc-switch
