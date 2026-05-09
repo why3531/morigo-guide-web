@@ -14,7 +14,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "ship": "scripts/git-push.sh"
+    "ship": "scripts/git-push.sh",
+    "article": "node scripts/new-article.mjs"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
