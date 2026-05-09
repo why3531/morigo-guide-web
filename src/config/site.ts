@@ -3,8 +3,7 @@ import { mockNavigation } from './navigation'
 
 const siteConfig: SiteConfig = {
   // ==================== 品牌 ====================
-  title: 'Mori',
-  titleHighlight: 'Go',
+  siteName: 'AI GO',
   tagline: '去发现，去抵达',
   logoIcon: 'mdi:arrow-top-right-bold-box',
 
@@ -12,6 +11,15 @@ const siteConfig: SiteConfig = {
   domain: 'go.morijiu.cn',
   domainUrl: 'https://go.morijiu.cn',
   githubUrl: 'https://github.com/MoRijiu/morigo-guide-web',
+
+  // ==================== 顶部菜单 ====================
+  // 内部链接示例：/articles 或 /articles/hello-ai-go
+  // 外部链接示例：https://github.com，建议 external: true
+  menus: [
+    { label: '教程', url: '/articles/categories/教程' },
+    { label: 'BLOG', url: '/articles' },
+    { label: 'GitHub', url: 'https://github.com/MoRijiu/morigo-guide-web', icon: 'mdi:github', external: true },
+  ],
 
   // ==================== 搜索 ====================
   search: {

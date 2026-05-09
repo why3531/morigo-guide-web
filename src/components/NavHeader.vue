@@ -3,8 +3,10 @@ import { ref, onMounted } from 'vue'
 import { Icon } from '@iconify/vue'
 import DynamicIcon from './DynamicIcon.vue'
 import siteConfig from '../config/site'
+import { getBrandParts } from '../utils/brand'
 
 const isDark = ref(false)
+const brandParts = getBrandParts()
 
 onMounted(() => {
   isDark.value = document.documentElement.classList.contains('dark')
@@ -32,21 +34,23 @@ if (typeof window !== 'undefined') {
           <DynamicIcon :icon="siteConfig.logoIcon" class="text-white text-base" />
         </span>
         <span class="font-display font-bold text-base tracking-tight text-surface-800 dark:text-surface-100">
-          {{ siteConfig.title }}<span class="text-accent-600 dark:text-accent-400">{{ siteConfig.titleHighlight }}</span>
+          {{ brandParts.main }}<span v-if="brandParts.highlight" class="text-accent-600 dark:text-accent-400"> {{ brandParts.highlight }}</span>
         </span>
         <Icon icon="mdi:chevron-right" class="text-xs text-surface-300 dark:text-surface-600 -ml-1.5 group-hover/logo:translate-x-0.5 transition-transform" />
       </a>
 
       <div class="flex items-center gap-1">
         <a
-          v-if="siteConfig.githubUrl"
-          :href="siteConfig.githubUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-8 h-8 rounded-md flex items-center justify-center text-surface-400 hover:text-surface-600 dark:hover:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"
-          title="GitHub"
+          v-for="menu in siteConfig.menus"
+          :key="menu.url"
+          :href="menu.url"
+          :target="menu.external ? '_blank' : undefined"
+          :rel="menu.external ? 'noopener noreferrer' : undefined"
+          class="h-8 rounded-md px-2.5 flex items-center justify-center gap-1.5 text-xs font-medium text-surface-400 hover:text-surface-600 dark:hover:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"
+          :title="menu.label"
         >
-          <Icon icon="mdi:github" class="text-lg" />
+          <DynamicIcon v-if="menu.icon" :icon="menu.icon" class="text-base" />
+          <span>{{ menu.label }}</span>
         </a>
         <button
           @click="toggleDark"
