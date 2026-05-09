@@ -8,7 +8,7 @@ import BackToTop from './components/BackToTop.vue'
 import ArticleList from './components/ArticleList.vue'
 import ArticlePage from './components/ArticlePage.vue'
 import siteConfig from './config/site'
-import { articles, getArticleBySlug, getArticlesByCategory } from './utils/articles'
+import { articles, getArticleBySlug, getArticlesByCategory, getArticlesByTag } from './utils/articles'
 import { getBrandParts } from './utils/brand'
 
 const keyword = ref('')
@@ -20,14 +20,19 @@ const articleCategory = computed(() => {
   const match = currentPath.value.match(/^\/articles\/categories\/([^/]+)\/?$/)
   return match?.[1] ? decodeURIComponent(match[1]) : undefined
 })
+const articleTag = computed(() => {
+  const match = currentPath.value.match(/^\/articles\/tags\/([^/]+)\/?$/)
+  return match?.[1] ? decodeURIComponent(match[1]) : undefined
+})
 const articleSlug = computed(() => {
-  if (articleCategory.value) return undefined
+  if (articleCategory.value || articleTag.value) return undefined
   const match = currentPath.value.match(/^\/articles\/([^/]+)\/?$/)
   return match?.[1]
 })
 const currentArticle = computed(() => articleSlug.value ? getArticleBySlug(articleSlug.value) : undefined)
 const categoryArticles = computed(() => articleCategory.value ? getArticlesByCategory(articleCategory.value) : [])
-const isArticleRoute = computed(() => isArticlesIndex.value || Boolean(articleCategory.value) || Boolean(articleSlug.value))
+const tagArticles = computed(() => articleTag.value ? getArticlesByTag(articleTag.value) : [])
+const isArticleRoute = computed(() => isArticlesIndex.value || Boolean(articleCategory.value) || Boolean(articleTag.value) || Boolean(articleSlug.value))
 
 const filteredCategories = computed(() => {
   const data = siteConfig.navigation
@@ -66,6 +71,7 @@ onUnmounted(() => window.removeEventListener('popstate', syncPath))
 
     <ArticleList v-if="isArticlesIndex" :articles="articles" />
     <ArticleList v-else-if="articleCategory" :articles="categoryArticles" :category="articleCategory" />
+    <ArticleList v-else-if="articleTag" :articles="tagArticles" :tag="articleTag" />
     <ArticlePage v-else-if="articleSlug" :article="currentArticle" />
 
     <template v-else>

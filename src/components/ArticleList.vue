@@ -5,8 +5,10 @@ import { getBrandParts } from '../utils/brand'
 withDefaults(defineProps<{
   articles: Article[]
   category?: string
+  tag?: string
 }>(), {
   category: '',
+  tag: '',
 })
 
 const brandParts = getBrandParts()
@@ -18,6 +20,7 @@ const brandParts = getBrandParts()
       <a href="/" class="text-xs font-medium text-surface-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors">返回导航</a>
       <h1 class="mt-4 font-display text-3xl font-bold tracking-tight text-surface-800 dark:text-surface-100">
         <template v-if="category">分类：<span class="text-accent-600 dark:text-accent-400">{{ category }}</span></template>
+        <template v-else-if="tag">标签：<span class="text-accent-600 dark:text-accent-400">{{ tag }}</span></template>
         <template v-else>{{ brandParts.main }}<span v-if="brandParts.highlight" class="text-accent-600 dark:text-accent-400"> {{ brandParts.highlight }}</span> BLOG</template>
       </h1>
     </div>
@@ -37,9 +40,14 @@ const brandParts = getBrandParts()
           >
             {{ article.meta.category }}
           </a>
-          <span v-for="tag in article.meta.tags" :key="tag" class="rounded bg-accent-50 px-1.5 py-0.5 text-accent-600 dark:bg-accent-900/30 dark:text-accent-300">
-            {{ tag }}
-          </span>
+          <a
+            v-for="itemTag in article.meta.tags"
+            :key="itemTag"
+            :href="`/articles/tags/${encodeURIComponent(itemTag)}`"
+            class="rounded bg-accent-50 px-1.5 py-0.5 text-accent-600 transition-colors hover:text-accent-800 dark:bg-accent-900/30 dark:text-accent-300 dark:hover:text-accent-100"
+          >
+            {{ itemTag }}
+          </a>
         </div>
         <a :href="`/articles/${article.slug}`" class="group block">
           <h2 class="mt-2 text-lg font-semibold text-surface-800 transition-colors group-hover:text-accent-600 dark:text-surface-100 dark:group-hover:text-accent-300">{{ article.meta.title }}</h2>

@@ -54,9 +54,14 @@ function closePreview() {
           >
             {{ article.meta.category }}
           </a>
-          <span v-for="tag in article.meta.tags" :key="tag" class="rounded bg-accent-50 px-1.5 py-0.5 text-accent-600 dark:bg-accent-900/30 dark:text-accent-300">
+          <a
+            v-for="tag in article.meta.tags"
+            :key="tag"
+            :href="`/articles/tags/${encodeURIComponent(tag)}`"
+            class="rounded bg-accent-50 px-1.5 py-0.5 text-accent-600 transition-colors hover:text-accent-800 dark:bg-accent-900/30 dark:text-accent-300 dark:hover:text-accent-100"
+          >
             {{ tag }}
-          </span>
+          </a>
         </div>
         <h1 class="font-display text-3xl font-bold tracking-tight text-surface-900 dark:text-surface-50 sm:text-4xl">{{ article.meta.title }}</h1>
         <p v-if="article.meta.description" class="mt-3 text-sm leading-6 text-surface-500 dark:text-surface-400">

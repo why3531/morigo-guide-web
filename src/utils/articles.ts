@@ -159,3 +159,7 @@ export function getArticleBySlug(slug: string) {
 export function getArticlesByCategory(category: string) {
   return articles.filter((article) => article.meta.category === category)
 }
+
+export function getArticlesByTag(tag: string) {
+  return articles.filter((article) => article.meta.tags?.includes(tag))
+}
