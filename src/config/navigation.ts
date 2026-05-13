@@ -11,7 +11,7 @@ export const mockNavigation: NavCategory[] = [
         url: 'https://freemodel.dev/invite/FRE-87d82ff6',
         icon: 'simple-icons:openai',
         tags: ['AI中转', '薅羊毛', '野鸡平台'],
-        // ribbon: { text: '野鸡', color: '#FAE251' },
+        ribbon: { text: '不稳定', color: '#686D76' },
       },
       {
         title: 'Timicc',
