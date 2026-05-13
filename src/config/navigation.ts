@@ -19,7 +19,7 @@ export const mockNavigation: NavCategory[] = [
         url: 'https://timicc.com/register?ref=WPD6NEPD',
         icon: 'simple-icons:openai',
         tags: ['claude', 'gpt'],
-        ribbon: { text: ' 已验证', color: '#831C91' },
+        ribbon: { text: '已验证', color: '#831C91' },
       },
       {
         title: 'PackyApi',
@@ -27,7 +27,7 @@ export const mockNavigation: NavCategory[] = [
         url: 'https://www.packyapi.com/register?aff=JtX1',
         icon: 'simple-icons:openai',
         tags: ['claude', 'gpt', 'gemini', 'deepseek-v4'],
-        ribbon: { text: ' 已验证', color: '#831C91' },
+        ribbon: { text: '已验证', color: '#831C91' },
       },
       {
         title: 'Cubence',
@@ -35,7 +35,7 @@ export const mockNavigation: NavCategory[] = [
         url: 'https://cubence.com/signup?code=SCDQB076',
         icon: 'simple-icons:openai',
         tags: ['claude', 'gpt', 'gemini'],
-        ribbon: { text: ' 已验证', color: '#831C91' },
+        ribbon: { text: '已验证', color: '#831C91' },
       },
     ],
   },
