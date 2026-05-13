@@ -19,7 +19,7 @@ export const mockNavigation: NavCategory[] = [
         url: 'https://timicc.com/register?ref=WPD6NEPD',
         icon: 'simple-icons:openai',
         tags: ['AI中转', 'claude', 'gpt'],
-        ribbon: { text: ' 已验证', color: '#FF61F8' },
+        ribbon: { text: ' 已验证', color: '#831C91' },
       },
     ],
   },
