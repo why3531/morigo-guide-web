@@ -21,6 +21,14 @@ export const mockNavigation: NavCategory[] = [
         tags: ['AI中转', 'claude', 'gpt'],
         ribbon: { text: ' 已验证', color: '#831C91' },
       },
+      {
+        title: 'PackyApi',
+        description: '价格优惠，0.6折，模型丰富',
+        url: 'https://www.packyapi.com/register?aff=JtX1',
+        icon: 'simple-icons:openai',
+        tags: ['AI中转', 'claude', 'gpt', 'gemini', 'deepseek-v4'],
+        ribbon: { text: ' 已验证', color: '#831C91' },
+      },
     ],
   },
 ]
